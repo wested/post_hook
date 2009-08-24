@@ -10,6 +10,6 @@ get '/favicon.ico' do
 end
 
 get '/test' do
-  script_name = 'foo.rb'
+  script_name = 'touch_file.rb'
   `ruby scripts/#{script_name}`
 end
