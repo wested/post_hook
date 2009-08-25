@@ -11,5 +11,6 @@ end
 
 post '/test' do
   script_name = 'touch_file.rb'
-  `ruby scripts/#{script_name}`
+  params = JSON.parse(params[:payload])
+  `ruby scripts/#{script_name} #{params}`
 end
