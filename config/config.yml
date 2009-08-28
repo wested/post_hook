@@ -1,3 +1,0 @@
-post_hook:
-  app_path: '/var/www/apps/calipers/current/'
-  module_path: 'vendor/plugins/'

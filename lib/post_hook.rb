@@ -21,5 +21,6 @@ class PostHook
     end
     @app_path    = config['post_hook']['app_path']
     @module_path = config['post_hook']['module_path']
+    @server_name = config['post_hook']['server_name']
   end
 end

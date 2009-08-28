@@ -10,8 +10,6 @@
 require 'yaml'
 
 class GithubServiceHook < PostHook
-  attr_accessor :submodule_path
-  
   def initialize(params)
     super
     
@@ -23,23 +21,24 @@ class GithubServiceHook < PostHook
     @repository = params['repository']
     
     # load config for this repository
-    repo_name = @repository['name']
+    @repo_name = @repository['name']
     location = "#{File.dirname(__FILE__)}/../config/submodules.yml"
     if !File.exist?(location)
       raise "You must configure your submodule in config/submodules.yml!"
     else
       config = YAML.load( File.open(location, 'r') )
     end
-    repo_config = config['submodules']["#{repo_name}"]
+    repo_config = config['submodules']["#{@repo_name}"]
+    raise "#{@repo_name} is not configured!" if repo_config.nil?
     
     # change submodule path from default if the repo config defines it
     if repo_config['module_path']
       @module_path = repo_config['module_path']
     end
     
-    self.submodule_path = @app_path + @module_path + repo_config['branch']
+    @submodule_path = @app_path + @module_path + @repo_name
     
-    @branch = repo_config['branch']
+    @submodule_branch = repo_config['branch']
   end
   
 end

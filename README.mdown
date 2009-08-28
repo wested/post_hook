@@ -1,6 +1,13 @@
 # Post Hook is a simple Sinatra template for use with Web Hooks
 Post hook is currently setup to run under Phusion Passenger (though not required) for use with Github service hooks.
 
+# Requirements
+Post hook relies on a number of rubygems:
+sinatra - well to run, it's a sinatra app after all
+rack - for logging
+active_support - for JSON parsing
+popen4 - for running shell commands and capturing the return values
+
 # Github Service Hook JSON template and example.
 
 Current as of Wednesday, August 26th, 2009.

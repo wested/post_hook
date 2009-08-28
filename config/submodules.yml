@@ -1,4 +1,0 @@
-submodules:
-  github:
-    branch: master
-    #module_path: defaults to module_path in config.yml unless defined

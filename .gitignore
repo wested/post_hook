@@ -1,2 +1,4 @@
 /tmp
 /log
+/config/config.yml
+/config/submodules.yml
